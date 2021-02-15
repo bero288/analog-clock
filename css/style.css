@@ -1,0 +1,243 @@
+/*start glopal*/
+* {
+  box-sizing: border-box;
+  padding: 0px;
+  margin: 0px;
+}
+:root {
+  --number-color: black;
+  --circle-color: black;
+  --hour-hand-color: black;
+  --minute-hand-color: black;
+  --seconds-hand-color: red;
+  --paragraph-color: black;
+}
+.dark {
+  --number-color: #636b77;
+  --circle-color: #f2f5f6;
+  --hour-hand-color: #f2f5f6;
+  --minute-hand-color: #f3155e;
+  --seconds-hand-color: #2980b9;
+  --paragraph-color: white;
+}
+body {
+  background-image: linear-gradient(
+    to top right,
+    hsl(200, 100%, 50%),
+    hsl(175, 100%, 50%)
+  );
+  min-height: 100vh;
+  overflow: hidden;
+  font-family: Arial, Tahoma;
+  font-weight: bold;
+}
+/*end glopal*/
+/*start my styling*/
+.loader {
+  z-index: 5555555;
+  position: fixed;
+  top: 0px;
+  left: 0px;
+  background-color: white;
+  width: 100%;
+  height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.disappear {
+  animation: vanish 1s forwards;
+}
+@keyframes vanish {
+  100% {
+    opacity: 0;
+    visibility: hidden;
+  }
+}
+.click-here {
+  font-size: 1rem;
+  font-weight: normal;
+  position: absolute;
+  top: 10px;
+  right: 50px;
+  color: var(--paragraph-color);
+}
+.click-here svg {
+  height: 0.75rem;
+  width: 0.75rem;
+}
+
+polygon {
+  stroke-width: 0;
+  stroke: #ffffff;
+  fill: #ffffff;
+}
+label {
+  position: absolute;
+  top: 10px;
+  right: 15px;
+}
+input[type="checkbox"] {
+  -webkit-appearance: none;
+  visibility: hidden;
+  display: none;
+}
+.check {
+  cursor: pointer;
+  position: relative;
+  display: block;
+  width: 40px;
+  height: 20px;
+  background-color: #0f2e3f;
+  border-radius: 20px;
+  overflow: hidden;
+  transition: 0.5s ease-in;
+}
+input[type="checkbox"]:checked ~ .check {
+  background-color: #f2f5f6;
+}
+.check::before {
+  content: "";
+  position: absolute;
+  top: 2px;
+  left: 2px;
+  width: 15px;
+  height: 15px;
+  border-radius: 50%;
+  background-color: #fff;
+  transition: all 0.5s ease-in;
+}
+input[type="checkbox"]:checked ~ .check::before {
+  transform: translatex(-50px);
+}
+.check::after {
+  content: "";
+  position: absolute;
+  top: 2px;
+  right: 3px;
+  width: 15px;
+  height: 15px;
+  border-radius: 50%;
+  background-color: #0f2e3f;
+  transition: all 0.5s ease-in;
+  transform: translatex(50px);
+}
+input[type="checkbox"]:checked ~ .check::after {
+  transform: translatex(0px);
+}
+.container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  min-height: 100vh;
+  overflow: hidden;
+}
+.clock {
+  width: 300px;
+  height: 300px;
+  border-radius: 50%;
+  border: 3px solid black;
+  box-shadow: 5px 5px 5px hsla(175, 82%, 39%, 0.377),
+    -5px -5px 5px hsla(200, 59%, 43%, 0.39);
+  background-color: rgba(236, 236, 236, 0.712);
+  position: relative;
+}
+.clock::after {
+  content: "";
+  position: absolute;
+  bottom: 50%;
+  right: 50%;
+  transform: translate(50%, 50%);
+  width: 20px;
+  height: 20px;
+  border-radius: 50%;
+  background-color: var(--circle-color);
+  z-index: 3000;
+}
+.clock .number {
+  --rotation: 0;
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  text-align: center;
+  transform: rotate(var(--rotation));
+  font-size: 25px;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -o-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+  color: var(--number-color);
+}
+.clock .number1 {
+  --rotation: 30deg;
+}
+.clock .number2 {
+  --rotation: 60deg;
+}
+.clock .number3 {
+  --rotation: 90deg;
+}
+.clock .number4 {
+  --rotation: 120deg;
+}
+.clock .number5 {
+  --rotation: 150deg;
+}
+.clock .number6 {
+  --rotation: 180deg;
+}
+.clock .number7 {
+  --rotation: 210deg;
+}
+.clock .number8 {
+  --rotation: 240deg;
+}
+.clock .number9 {
+  --rotation: 270deg;
+}
+.clock .number10 {
+  --rotation: 300deg;
+}
+.clock .number11 {
+  --rotation: 330deg;
+}
+.clock .hand {
+  --rotation: 0;
+  position: absolute;
+  bottom: 50%;
+  right: 50%;
+  border-top-left-radius: 7px;
+  border-top-right-radius: 7px;
+  transform: translatex(50%) rotate(calc(var(--rotation) * 1deg));
+  transform-origin: bottom;
+  z-index: 150;
+}
+.clock .hour {
+  width: 10px;
+  height: 35%;
+  background-color: var(--hour-hand-color);
+}
+.clock .minute {
+  width: 5px;
+  height: 40%;
+  background-color: var(--minute-hand-color);
+}
+.clock .seconds {
+  width: 3px;
+  height: 45%;
+  background-color: var(--seconds-hand-color);
+}
+/*start dark mode*/
+body.dark {
+  background-image: none;
+  background-color: #0f2e3f;
+}
+.clock.dark {
+  border: none;
+  background-color: transparent;
+  box-shadow: none;
+}
+/*end dark mode*/
+/*end my styling*/

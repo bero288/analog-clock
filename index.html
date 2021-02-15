@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="css/style.css" />
+    <script src="js/app.js" defer></script>
+    <script src="js/toggler.js" defer></script>
+    <script src="js/loader.js" defer></script>
+    <title>analog clock</title>
+  </head>
+  <body>
+    <p class="click-here" style="width: 100px;">
+      click here
+      <svg xmlns="http://www.w3.org/2000/svg" viewbox="0, 0, 100, 100">
+        <polygon points="0,0 100,50 0,100 20, 50" />
+      </svg>
+    </p>
+    <div class="loader" id="loader">
+      <img src="images/load-gif.gif" alt="" />
+    </div>
+    <label>
+      <input type="checkbox" />
+      <span class="check" id="dark-toggler"></span>
+    </label>
+    <div class="container">
+      <div class="clock">
+        <div class="hand hour"></div>
+        <div class="hand minute"></div>
+        <div class="hand seconds"></div>
+        <div class="number number1">1</div>
+        <div class="number number2">2</div>
+        <div class="number number3">3</div>
+        <div class="number number4">4</div>
+        <div class="number number5">5</div>
+        <div class="number number6">6</div>
+        <div class="number number7">7</div>
+        <div class="number number8">8</div>
+        <div class="number number9">9</div>
+        <div class="number number10">10</div>
+        <div class="number number11">11</div>
+        <div class="number number12">12</div>
+      </div>
+    </div>
+  </body>
+</html>
